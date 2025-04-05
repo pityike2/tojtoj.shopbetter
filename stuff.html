@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TOJTOJ.SHOP</title>
+</head>
+<body>
+  <h1>Available Downloads</h1>
+  <select id="fileSelect">
+    <option value="">-- Choose a file --</option>
+    <option value="downloadables/[nCore][xvid_hun]Zimmer.Feri.1998.RETAiL.DVDRip.Xvid.HUN-moviesite (1).torrent">[nCore][xvid_hun]Zimmer.Feri.1998.RETAiL.DVDRip.Xvid.HUN-moviesite (1).torrent</option>
+    <option value="downloadables/[nCore][xvid_hun]Zimmer_Feri_2..torrent">[nCore][xvid_hun]Zimmer_Feri_2..torrent</option>
+    <option value="downloadables/[nCore][xvid]No.Time.to.Die.2021.BDRip.x264-BiPOLAR.torrent">[nCore][xvid]No.Time.to.Die.2021.BDRip.x264-BiPOLAR.torrent</option>
+    <option value="downloadables/[nCore][xvid_hun]Kemenykalap.es.krumpliorr.1978.Hun.DVDRip.XviD-LSR.torrent">[nCore][xvid_hun]Kemenykalap.es.krumpliorr.1978.Hun.DVDRip.XviD-LSR.torrent</option>
+    <option value="downloadables/"></option>
+    <option value="downloadables/"></option>
+    <option value="downloadables/"></option>
+    <option value="downloadables/"></option>
+    <option value="downloadables/"></option>
+    <option value="downloadables/"></option>
+    <option value="downloadables/"></option>
+    <option value="downloadables/"></option>
+    <option value="downloadables/"></option>
+    <option value="downloadables/"></option>
+  </select>
+  <button onclick="downloadFile()">Download</button>
+
+  <script>
+    function downloadFile() {
+      const select = document.getElementById('fileSelect');
+      const file = select.value;
+      if (file) {
+        const a = document.createElement('a');
+        a.href = file;
+        a.download = file.split('/').pop(); // Optional: force download with filename
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else {
+        alert("Please choose a file.");
+      }
+    }
+  </script>
+</body>
+</html>
