@@ -1,0 +1,66 @@
+
+    function rtg_popups_settings_and_script_init() {
+        window.rtg_popups_init_started = true;
+        var cookie = document.cookie.split('; ').find(row => row.startsWith('__ra='));
+        if (!cookie) {
+            return;
+        }
+
+        /* to be removed */
+        var startIndex = cookie.indexOf("agid");
+        var endIndex = cookie.indexOf(":::", startIndex + 7);
+        var agentId = cookie.substr(startIndex + 7, endIndex - startIndex - 7);
+
+        var startIndex = cookie.indexOf("sesid");
+        var endIndex = cookie.indexOf(":::", startIndex + 8);
+        var sessionId = cookie.substr(startIndex + 8, endIndex - startIndex - 8);
+
+        let userDataUrl = "https://api.retargeting.app/v1/popup-campaign/user-data?k=00YP3Z5326NETC";
+
+        /* de vb cu andi pentru cors sa se trimita cookies */
+        fetch(userDataUrl, {
+            method: "POST",
+            headers: {"Content-type": "application/json;charset=UTF-8"},
+            body: JSON.stringify({cookie: cookie.split("=")[1]})
+        })
+            .then((response) => {
+                response.json().then((body) => {
+                    window.rtg_popups_data =  {
+                        apiKey: '00YP3Z5326NETC',
+                        userData: body,
+                        popups: [{"type":"cart-abandonment","id":"65b8f729b60c4d07297ffab5","layout":{"id":"65b8f729b60c4d07297ffab5","popup_type":"cart-abandonment","layout_type":"lightbox","content_type":"product"},"settings":{"on_cart_abandon":{"display_frequency":{"active":true,"user_type":"everyone","display_on":"once-a-day","show_for_converted":false,"days_after_order":5},"days_and_hours":{"active":false,"rules":[{"display_on":"every-day-of-the-week","from":null,"to":null}]},"traffic_source":{"active":false,"direct_visit":true,"social_networks":true,"search_engines":true,"google_ads":true,"facebook_ads":true},"dates":{"active":false,"start_date":null,"end_date":null,"start_time":null,"end_time":null},"discounts":{"active":false,"rules":[{"category":null,"discount":null}]},"page_exclusions":{"active":false,"specific_urls":[]},"active":true}},"priority":1},{"type":"product-recommender","id":"65b8f729b60c4d07297ffab6","layout":{"id":"65b8f729b60c4d07297ffab6","popup_type":"product-recommender","layout_type":"lightbox","content_type":"product"},"settings":{"on_exit":{"display_frequency":{"active":false,"user_type":"everyone","display_on":"every-day-of-the-week","show_for_converted":false},"days_and_hours":{"active":false,"rules":[{"display_on":"every-day-of-the-week","from":null,"to":null}]},"traffic_source":{"active":false,"direct_visit":true,"social_networks":true,"search_engines":true,"google_ads":true,"facebook_ads":true},"dates":{"active":false,"start_date":null,"end_date":null,"start_time":null,"end_time":null},"discounts":{"active":false,"rules":[{"category":null,"discount":null}]},"page_exclusions":{"active":false,"specific_urls":[]}},"on_scroll":{"page_scroll":{"active":false,"display_after_percentage":25},"page_targeting":{"active":false,"categories":null,"specific_urls":[]},"display_on_devices":{"active":false,"devices":"all"},"display_frequency":{"active":false,"user_type":"everyone","display_on":"every-day-of-the-week","show_for_converted":false},"days_and_hours":{"active":false,"rules":[{"display_on":"every-day-of-the-week","from":null,"to":null}]},"traffic_source":{"active":false,"direct_visit":true,"social_networks":true,"search_engines":true,"google_ads":true,"facebook_ads":true},"dates":{"active":false,"start_date":null,"end_date":null,"start_time":null,"end_time":null},"page_exclusions":{"active":false,"specific_urls":[]}},"on_click":{"click_count":{"active":true,"display_after_number_of_clicks":"10"},"display_on_devices":{"active":false,"devices":"all"},"display_frequency":{"active":true,"user_type":"everyone","display_on":"once-a-day","show_for_converted":false,"days_after_order":5},"days_and_hours":{"active":false,"rules":[{"display_on":"every-day-of-the-week","from":null,"to":null}]},"traffic_source":{"active":false,"direct_visit":true,"social_networks":true,"search_engines":true,"google_ads":true,"facebook_ads":true},"dates":{"active":false,"start_date":null,"end_date":null,"start_time":null,"end_time":null},"page_exclusions":{"active":false,"specific_urls":[]},"active":true}},"priority":1},{"type":"cross-sell","id":"65b8f729b60c4d07297ffab9","layout":{"id":"65b8f729b60c4d07297ffab9","popup_type":"cross-sell","layout_type":"lightbox","content_type":"products"},"settings":{"on_add_to_cart":{"page_targeting":{"active":false,"categories":null,"specific_urls":[]},"display_on_devices":{"active":false,"devices":"all"},"display_frequency":{"active":true,"user_type":"everyone","display_on":"once-a-day","show_for_converted":false,"days_after_order":5},"days_and_hours":{"active":false,"rules":[{"display_on":"every-day-of-the-week","from":null,"to":null}]},"traffic_source":{"active":false,"direct_visit":true,"social_networks":true,"search_engines":true,"google_ads":true,"facebook_ads":true},"dates":{"active":false,"start_date":null,"end_date":null,"start_time":null,"end_time":null},"discounts":{"active":false,"rules":[{"category":null,"discount":null}]},"page_exclusions":{"active":false,"specific_urls":[]},"active":true}},"priority":1}],
+                        settings: {"displaySettings":{"number_per_session":3}}
+                    }
+                    var popupsScript = document.createElement("script");
+                    popupsScript.src = "https://api.retargeting.app/js/popups.js"
+                    document.body.append(popupsScript);
+                    setTimeout(function () {
+                        window.rtg_popups_init_started = false;
+                    }, 1000)
+                });
+            })
+            .catch((error) => {
+
+            });
+    }
+
+    rtg_popups_settings_and_script_init();
+
+    if (typeof window.rtg_popups_mutation_observer === "undefined") {
+        // SPA implementation
+        window.rtg_popups_mutation_observer_previous_url = '';
+        window.rtg_popups_mutation_observer = new MutationObserver(function(mutations) {
+            if (location.href !== window.rtg_popups_mutation_observer_previous_url) {
+                window.rtg_popups_mutation_observer_previous_url = location.href;
+                if (window.rtg_popups_init_started !== true) {
+                    rtg_popups_settings_and_script_init();
+                }
+            }
+        });
+
+        window.rtg_popups_mutation_observer.observe(document, { subtree: true, childList: true });
+
+        window.addEventListener('beforeunload', function (event) {
+            window.rtg_popups_mutation_observer.disconnect();
+        });
+    }

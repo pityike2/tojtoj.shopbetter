@@ -1,0 +1,23 @@
+/* Fehér kategória mező magassága */
+.header-category-navbar {
+  height: 120px;
+ position: relative;
+ top: -10px;
+}
+
+
+/* szürke felső csík  */
+.header-navbar {
+   /* height: 60px; */
+}
+/* menü alatti fehér csík  */
+.header-bottom{
+  background: #fff;
+}
+.nav-item{
+  height: 30px; 
+  padding-right: 20px;
+}
+.category-list{
+  height: 50px; 
+}

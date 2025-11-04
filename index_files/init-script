@@ -1,0 +1,186 @@
+_rtg_c_k = document.cookie.split('; ').find(row => row.startsWith('__ra='));
+
+function _rtgre_ejcf(node) {
+    if (node.tagName === 'SCRIPT') {
+        let newNode = document.createElement("script");
+
+        newNode.text = node.innerHTML;
+
+        let i = -1, attrs = node.attributes, attr;
+
+        while (++i < attrs.length) {
+            newNode.setAttribute((attr = attrs[i]).name, attr.value);
+        }
+
+        node.parentNode.replaceChild( newNode, node);
+    } else {
+        let i = -1, children = node.childNodes;
+
+        while(++i < children.length) {
+            _rtgre_ejcf(children[i]);
+        }
+    }
+}
+
+function _rtgre_cfre() { //check for existance of paramters _rtgrep in link
+    let searchString = location.search.substr(1);
+    let pairs = searchString.split("&");
+    let parts;
+    let i;
+
+    for(i = 0; i < pairs.length; i++){
+        parts = pairs[i].split("=");
+
+        if(parts[0] === '__rtgrep') {
+            fetch('https://api.retargeting.app/v1/receng/widget-c?k=00YP3Z5326NETC&p=' + decodeURI(parts[1]) + '&c=' + _rtg_c_k).then(function(response) {return response.text()});
+            return;
+        }
+    }
+}
+
+function _rtgre_so(orderNumber) { //saveorder event requested
+    fetch('https://api.retargeting.app/v1/receng/save-order?k=00YP3Z5326NETC&o=' + orderNumber + '&c=' + _rtg_c_k).then(function(response) {return response.text()});
+}
+
+_rtgre_cfre();
+
+
+_rtg_el65b8f68c4826422186250ea5 = document.getElementById('rtgre_65b8f68c4826422186250ea5');
+
+if(_rtg_el65b8f68c4826422186250ea5 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=65b8f68c4826422186250ea5&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el65b8f68c4826422186250ea5.innerHTML = html;
+        _rtgre_ejcf(_rtg_el65b8f68c4826422186250ea5);
+    });
+}
+
+
+_rtg_el65fd54311005d238fa4f0823 = document.getElementById('rtgre_65fd54311005d238fa4f0823');
+
+if(_rtg_el65fd54311005d238fa4f0823 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=65fd54311005d238fa4f0823&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el65fd54311005d238fa4f0823.innerHTML = html;
+        _rtgre_ejcf(_rtg_el65fd54311005d238fa4f0823);
+    });
+}
+
+
+_rtg_el65fd5458481102521979b714 = document.getElementById('rtgre_65fd5458481102521979b714');
+
+if(_rtg_el65fd5458481102521979b714 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=65fd5458481102521979b714&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el65fd5458481102521979b714.innerHTML = html;
+        _rtgre_ejcf(_rtg_el65fd5458481102521979b714);
+    });
+}
+
+
+_rtg_el65fd5555e9ad6a0ad777fce4 = document.getElementById('rtgre_65fd5555e9ad6a0ad777fce4');
+
+if(_rtg_el65fd5555e9ad6a0ad777fce4 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=65fd5555e9ad6a0ad777fce4&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el65fd5555e9ad6a0ad777fce4.innerHTML = html;
+        _rtgre_ejcf(_rtg_el65fd5555e9ad6a0ad777fce4);
+    });
+}
+
+
+_rtg_el65fd55ad944dfc0d740f0d23 = document.getElementById('rtgre_65fd55ad944dfc0d740f0d23');
+
+if(_rtg_el65fd55ad944dfc0d740f0d23 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=65fd55ad944dfc0d740f0d23&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el65fd55ad944dfc0d740f0d23.innerHTML = html;
+        _rtgre_ejcf(_rtg_el65fd55ad944dfc0d740f0d23);
+    });
+}
+
+
+_rtg_el65fd55f7a6fefe730708b0d4 = document.getElementById('rtgre_65fd55f7a6fefe730708b0d4');
+
+if(_rtg_el65fd55f7a6fefe730708b0d4 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=65fd55f7a6fefe730708b0d4&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el65fd55f7a6fefe730708b0d4.innerHTML = html;
+        _rtgre_ejcf(_rtg_el65fd55f7a6fefe730708b0d4);
+    });
+}
+
+
+_rtg_el65fd560f602878346d06db53 = document.getElementById('rtgre_65fd560f602878346d06db53');
+
+if(_rtg_el65fd560f602878346d06db53 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=65fd560f602878346d06db53&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el65fd560f602878346d06db53.innerHTML = html;
+        _rtgre_ejcf(_rtg_el65fd560f602878346d06db53);
+    });
+}
+
+
+_rtg_el65fd56245353295729415733 = document.getElementById('rtgre_65fd56245353295729415733');
+
+if(_rtg_el65fd56245353295729415733 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=65fd56245353295729415733&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el65fd56245353295729415733.innerHTML = html;
+        _rtgre_ejcf(_rtg_el65fd56245353295729415733);
+    });
+}
+
+
+_rtg_el65fd565f0ba2845bd678bd74 = document.getElementById('rtgre_65fd565f0ba2845bd678bd74');
+
+if(_rtg_el65fd565f0ba2845bd678bd74 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=65fd565f0ba2845bd678bd74&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el65fd565f0ba2845bd678bd74.innerHTML = html;
+        _rtgre_ejcf(_rtg_el65fd565f0ba2845bd678bd74);
+    });
+}
+
+
+_rtg_el664da7b8f4f5b71d141cba65 = document.getElementById('rtgre_664da7b8f4f5b71d141cba65');
+
+if(_rtg_el664da7b8f4f5b71d141cba65 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=664da7b8f4f5b71d141cba65&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el664da7b8f4f5b71d141cba65.innerHTML = html;
+        _rtgre_ejcf(_rtg_el664da7b8f4f5b71d141cba65);
+    });
+}
+
+
+_rtg_el664da7fe795a4a29de534ca5 = document.getElementById('rtgre_664da7fe795a4a29de534ca5');
+
+if(_rtg_el664da7fe795a4a29de534ca5 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=664da7fe795a4a29de534ca5&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el664da7fe795a4a29de534ca5.innerHTML = html;
+        _rtgre_ejcf(_rtg_el664da7fe795a4a29de534ca5);
+    });
+}
+
+
+_rtg_el664da819ebdd587fc901dbf4 = document.getElementById('rtgre_664da819ebdd587fc901dbf4');
+
+if(_rtg_el664da819ebdd587fc901dbf4 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=664da819ebdd587fc901dbf4&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el664da819ebdd587fc901dbf4.innerHTML = html;
+        _rtgre_ejcf(_rtg_el664da819ebdd587fc901dbf4);
+    });
+}
+
+
+_rtg_el664da83a970110386364ef65 = document.getElementById('rtgre_664da83a970110386364ef65');
+
+if(_rtg_el664da83a970110386364ef65 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=664da83a970110386364ef65&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el664da83a970110386364ef65.innerHTML = html;
+        _rtgre_ejcf(_rtg_el664da83a970110386364ef65);
+    });
+}
+
+
+_rtg_el664da8539d226b132c5b0076 = document.getElementById('rtgre_664da8539d226b132c5b0076');
+
+if(_rtg_el664da8539d226b132c5b0076 !== null) {
+    fetch('https://api.retargeting.app/v1/receng/widget?k=00YP3Z5326NETC&w=664da8539d226b132c5b0076&c=' + _rtg_c_k).then(function(response) {return response.text()}).then(function(html) {
+        _rtg_el664da8539d226b132c5b0076.innerHTML = html;
+        _rtgre_ejcf(_rtg_el664da8539d226b132c5b0076);
+    });
+}
+
